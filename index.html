@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar Form Validation</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <style>
+        h1{
+        text-align :center;
+    }
+    </style>
+</head>
+<body>
+    <h1>
+        Form Pendataan Mahasiswa FTEIC untuk Perkuliahan Offline
+    </h1>
+    <div class="container">
+        <form name="formPendaftaranKuliahOffline" onsubmit="return validateForm()">
+            <div class="form-group">
+                <label>Nama</label>
+                <input type="text" name="nama" placeholder="Nama Lengkap" class="form-control" required maxlength="40" minlength="5">
+            </div>
+            <div class="form-group">
+                <label>Departemen</label>
+                <select name="departemen" class="form-control">
+                    <option value="0">Pilih Departemen</option>
+                    <option value="1">Teknik Informatika</option>
+                    <option value="2">Teknik Elektro</option>
+                    <option value="3">Teknik Komputer</option>
+                    <option value="4">Sistem Informasi</option>
+                    <option value="5">Teknologi Informasi</option>
+                    <option value="6">Teknik Biomedik</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>NRP</label>
+                <input type="text" name="nrp" placeholder="NRP Mahasiswa" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" name="email" placeholder="Email Aktif" class="form-control">
+                <small id="emailHelp" class="form-text text-muted">Email Akan Digunakan Untuk Mengirimkan Notifikasi
+                    Serta Update Informasi Mengenai Perkuliahan Offline.
+                </small>
+            </div>
+            <div class="form-group">
+                <label>Status Vaksinasi</label>
+                <select name="vaksin" class="form-control">
+                    <option value="0">Pilih Status Vaksin</option>
+                    <option value="1">Sudah Vaksin</option>
+                    <option value="2">Belum Vaksin</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    <script>
+        function validateForm() {
+            if (document.forms["formPendaftaranKuliahOffline"]["nama"].value == "") {
+                alert("Mohon Mengisi Nama Anda");
+                document.forms["formPendaftaranKuliahOffline"]["nama"].focus();
+                return false;
+            }
+            if (document.forms["formPendaftaranKuliahOffline"]["departemen"].selected == 0 ) {
+                alert("Mohon Memilih Departemen Anda");
+                document.forms["formPendaftaranKuliahOffline"]["departemen"].focus();
+                return false;
+            }
+            if (document.forms["formPendaftaranKuliahOffline"]["nrp"].value == "") {
+                alert("Mohon Mengisi NRP Anda");
+                document.forms["formPendaftaranKuliahOffline"]["nrp"].focus();
+                return false;
+            }
+            if (document.forms["formPendaftaranKuliahOffline"]["email"].value == "") {
+                alert("Mohon Mengisi Email Anda");
+                document.forms["formPendaftaranKuliahOffline"]["email"].focus();
+                return false;
+            }
+            if (document.forms["formPendaftaranKuliahOffline"]["vaksin"].selected == 0 ) {
+                alert("Mohon Memilih Status Vaksinasi Anda");
+                document.forms["formPendaftaranKuliahOffline"]["vaksin"].focus();
+                return false;
+            }
+        }
+    </script>    
+</body>
+</html>
